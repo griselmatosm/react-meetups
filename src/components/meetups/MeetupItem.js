@@ -1,16 +1,16 @@
-import { useFetch } from "./../../util-hooks/useFetch";
-import classes from "./MeetupItem.module.css";
-import Card from "../ui/Card";
+import { useFetch } from './../../util-hooks/useFetch'
+import classes from './MeetupItem.module.css'
+import Card from '../ui/Card'
 
-export default function MeetupItem() {
+export default function MeetupItem () {
   const { data } = useFetch({
-    url: "/data.json",
-  });
+    url: '/data.json'
+  })
 
-  if (!data) return <p>Loading...</p>;
-  let [item] = data;
+  if (!data) return <p>Loading...</p>
+  const [item] = data
 
-  console.log(data);
+  console.log(data)
 
   return (
     <li className={classes.item} data-test='meet-up-item'>
@@ -28,5 +28,5 @@ export default function MeetupItem() {
         </div>
       </Card>
     </li>
-  );
+  )
 }

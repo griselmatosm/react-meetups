@@ -18,10 +18,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "./node_modules/standard/eslintrc.json"
   },
   "browserslist": {
     "production": [
@@ -37,6 +34,7 @@
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
-    "enzyme": "^3.11.0"
+    "enzyme": "^3.11.0",
+    "standard": "^17.1.0"
   }
 }
