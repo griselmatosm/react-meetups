@@ -1,4 +1,4 @@
-export default function FavoritesPage () {
+export function FavoritesPage () {
   return (
     <section>
       <h1>Favorites Page</h1>
