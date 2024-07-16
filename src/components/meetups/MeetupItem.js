@@ -1,27 +1,17 @@
-import { useFetch } from './../../util-hooks/useFetch'
 import classes from './MeetupItem.module.css'
 import Card from '../ui/Card'
 
-export default function MeetupItem () {
-  const { data } = useFetch({
-    url: '/data.json'
-  })
-
-  if (!data) return <p>Loading...</p>
-  const [item] = data
-
-  console.log(data)
-
+export default function MeetupItem ({ id, image, title, address, description }) {
   return (
     <li className={classes.item} data-test='meet-up-item'>
       <Card>
         <div className={classes.image}>
-          <img src={item.image} alt={item.title} />
+          <img src={image} alt={title} />
         </div>
         <div className={classes.content}>
-          <h3>{item.title}</h3>
-          <address>{item.address}</address>
-          <p>{item.description}</p>
+          <h3>{title}</h3>
+          <address>{address}</address>
+          <p>{description}</p>
         </div>
         <div className={classes.actions}>
           <button>Add to favorites</button>

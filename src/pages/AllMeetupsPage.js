@@ -1,4 +1,4 @@
-import MeetupItem from '../components/meetups/MeetupItem'
+import MeetupList from '../components/meetups/MeetupList'
 import classes from './../components/meetups/MeetupList.module.css'
 
 export function AllMeetupsPage () {
@@ -6,10 +6,7 @@ export function AllMeetupsPage () {
     <section>
       <h1>All Meetups</h1>
       <ul className={classes.list}>
-        <MeetupItem />
-        <MeetupItem />
-        <MeetupItem />
-        <MeetupItem />
+        <MeetupList />
       </ul>
     </section>
   )
