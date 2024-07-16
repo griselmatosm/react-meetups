@@ -1,13 +1,25 @@
 import MeetupItem from './MeetupItem'
 import classes from './MeetupList.module.css'
-import { useFetch } from '../../util-hooks/useFetch'
+import { useMeetups } from '../../hooks/useMeetups'
+import { useEffect } from 'react'
 
 export default function MeetupList () {
-  const { data: meetups } = useFetch({
-    url: '/data.json'
-  })
+  const { data: meetups, isLoading, isError, mutate } = useMeetups()
+  console.log('meetups', meetups)
 
-  if (!meetups) return <p>Loading...</p>
+  useEffect(() => {
+    if (!meetups && !isLoading && !isError) {
+      // fetch meetups
+      fetch('data.json')
+        .then((response) => response.json())
+        .then((data) => {
+          window.localStorage.setItem('meetups', JSON.stringify(data))
+          mutate(data, false)
+        })
+    }
+  }, [meetups, isLoading, isError, mutate])
+
+  if (!meetups && isLoading) return <p>Loading...</p>
 
   return (
     <ul className={classes.list}>
