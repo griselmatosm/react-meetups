@@ -1,15 +1,18 @@
 import { Outlet } from 'react-router-dom'
 import Header from './components/layout/Header'
 import Layout from './components/layout/Layout'
+import { MeetupsProvider } from './contexts/MeetupsContext'
 
 function App () {
   return (
-    <div data-test='app'>
-      <Header />
-      <Layout>
-        <Outlet />
-      </Layout>
-    </div>
+    <MeetupsProvider>
+      <div data-test='app'>
+        <Header />
+        <Layout>
+          <Outlet />
+        </Layout>
+      </div>
+    </MeetupsProvider>
   )
 }
 
