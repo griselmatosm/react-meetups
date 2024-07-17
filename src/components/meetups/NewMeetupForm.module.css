@@ -21,6 +21,10 @@
   padding: 0.25rem;
   width: 100%;
 }
+/* TODO: improve styling form validation */
+.control p {
+  color: red;
+}
 
 .actions {
   margin-top: 1rem;
@@ -43,3 +47,5 @@
   background-color: #a50e48;
   border-color: #a50e48;
 }
+
+
