@@ -15,8 +15,6 @@ const MeetupsProvider = ({ children }) => {
   })
   const [meetups, setMeetups] = useState(data || [])
 
-  console.log('data del local storage con SWR', data)
-
   useEffect(() => {
     if (data && !data.length && !error) {
       // fetch meetups if no data in local storage
@@ -39,11 +37,23 @@ const MeetupsProvider = ({ children }) => {
     mutate(newMeetups, false) // upadate data without refetch
   }
 
+  const toggleFavorites = ({ id }) => {
+    const newMeetups = meetups.map((m) => {
+      if (m.id === id) {
+        return { ...m, isFavorite: !m.isFavorite }
+      }
+      return m
+    })
+    setMeetups(newMeetups)
+    window.localStorage.setItem('meetups', JSON.stringify(newMeetups))
+  }
+
   return (
     <MeetupsContext.Provider
       value={{
         meetups,
         addMeetup,
+        toggleFavorites,
         isLoading: isLoading || isValidating,
         isError: error
       }}

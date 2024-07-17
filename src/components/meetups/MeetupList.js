@@ -10,7 +10,7 @@ export default function MeetupList () {
 
   return (
     <ul className={classes.list}>
-      {meetups.map(({ id, image, title, address, description }) => (
+      {meetups.map(({ id, image, title, address, description, isFavorite }) => (
         <MeetupItem
           key={id}
           id={id}
@@ -18,6 +18,7 @@ export default function MeetupList () {
           title={title}
           address={address}
           description={description}
+          isFavorite={isFavorite}
         />
       ))}
     </ul>
