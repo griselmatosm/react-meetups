@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom'
-
+import cx from 'classnames'
+import { useMeetups } from '../../contexts/MeetupsContext'
+import { useScrollDirection } from '../../hooks/useScrollDirection'
 import classes from './Header.module.css'
 
 export default function Header () {
+  const { meetups } = useMeetups()
+  const scrollDirection = useScrollDirection()
+
+  const favoriteCount = meetups.reduce((total, meetup) => total + (meetup.isFavorite ? 1 : 0), 0)
+  const headerClasses = cx(classes.header, { [classes.show]: scrollDirection === 'up', [classes.hide]: scrollDirection === 'down' })
   return (
-    <header className={classes.header} data-test='navigation-header'>
+    <header className={headerClasses} data-test='navigation-header'>
       <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
@@ -22,7 +29,7 @@ export default function Header () {
           <li>
             <Link to='favorites'>
               My Favorites
-              <span className={classes.badge}>{0}</span>
+              <span className={classes.badge}>{favoriteCount}</span>
             </Link>
           </li>
         </ul>
