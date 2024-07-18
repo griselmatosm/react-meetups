@@ -48,19 +48,31 @@ Asegúrate de tener instalado Node.js y npm en tu máquina.
    ```bash
    cd react-meetups
 3. Instala las dependencias:
-  ```bash
-  npm install
+   ```bash
+   npm install
 
 ### Ejecución del proyecto
 
 Para ejecutar la aplicación en modo desarrollo, usa el siguiente comando:
-    ```bash
-    npm start
+```bash
+npm start
+```
 
 Abre http://localhost:3000 para ver la aplicación en el navegador. La página se recargará automáticamente si realizas cambios en el código.
 
 ### Ejecución de Pruebas
 
 Este proyecto incluye pruebas unitarias para los componentes. Para ejecutar las pruebas, usa el siguiente comando:
-    ```bash
-    npm test
+```bash
+npm test
+```
+    
+### Futuras Mejoras
+
+A continuación, se presentan algunas mejoras que se podrían implementar en el futuro para mejorar la funcionalidad y la experiencia del usuario:
+
+1. **Backend para Persistencia:** Implementar un backend utilizando Node.js y una base de datos como MongoDB para la persistencia de datos en lugar de localStorage.
+2. **Autenticación de Usuarios:** Añadir funcionalidad de registro e inicio de sesión para que los usuarios puedan gestionar sus propios meetups y favoritos.
+3. **Paginación y Filtrado:** Implementar paginación y filtrado en la lista de meetups para mejorar la usabilidad cuando haya muchos meetups.
+4. **Notificaciones en Tiempo Real:** Utilizar WebSockets para notificaciones en tiempo real sobre nuevos meetups o cambios en los favoritos.
+5. **Mejoras en la UI/UX:** Refinar el diseño de la interfaz de usuario y mejorar la experiencia del usuario con animaciones y feedback visual.
