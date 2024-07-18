@@ -6,7 +6,7 @@ import { MeetupsProvider } from './contexts/MeetupsContext'
 function App () {
   return (
     <MeetupsProvider>
-      <div data-test='app'>
+      <div data-testid='app'>
         <Header />
         <Layout>
           <Outlet />

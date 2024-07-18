@@ -1,30 +1,45 @@
-/* eslint-disable testing-library/await-async-query */
-/* eslint-disable testing-library/no-debugging-utils */
-import { shallow, mount } from 'enzyme'
+/* eslint-env jest */
+import React, { act } from 'react'
+import { screen } from '@testing-library/react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import MainNavigation from './components/layout/MainNavigation'
-import Layout from './components/layout/Layout'
+import { MeetupsProvider } from './contexts/MeetupsContext'
 
-/**
- * Factory funcion to create a ShallowWrapper for the App component
- * @function setup
- * @returns {ShallowWrapper}
- */
-const setup = () => shallow(<App />)
-const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test]='${val}'`)
+// Mock data for meetups
+const mockMeetups = [
+  { id: '1', title: 'Mock Meetup 1', isFavorite: true, image: '', address: '', description: '' },
+  { id: '2', title: 'Mock Meetup 2', isFavorite: false, image: '', address: '', description: '' }
+]
 
-test('renders App without crashing', () => {
-  const wrapper = setup()
-  // console.log(wrapper.debug());
-  expect(wrapper.exists()).toBe(true)
+// Mock localStorage for meetups
+beforeAll(() => {
+  window.localStorage.setItem('meetups', JSON.stringify(mockMeetups))
 })
 
-test('renders the navigation component', () => {
-  const wrapper = setup()
-  expect(wrapper.find(MainNavigation).length).toBe(1)
-})
+test('renders the App component with Header, Layout, and Outlet', async () => {
+  const container = document.createElement('div')
+  document.body.appendChild(container)
+  const root = createRoot(container)
+  await act(async () => {
+    root.render(
+      <BrowserRouter>
+        <MeetupsProvider>
+          <App />
+        </MeetupsProvider>
+      </BrowserRouter>
+    )
+  })
 
-test('renders the Layout component', () => {
-  const wrapper = setup()
-  expect(wrapper.find(Layout).length).toBe(1)
+  // Check if the main app div is rendered
+  const appElement = screen.getByTestId('app')
+  expect(appElement).toBeInTheDocument()
+
+  // Check if the Header component is rendered
+  const headerElement = screen.getByTestId('navigation-header')
+  expect(headerElement).toBeInTheDocument()
+
+  // Check if the Layout component is rendered
+  const layoutElement = screen.getByTestId('layout')
+  expect(layoutElement).toBeInTheDocument()
 })
