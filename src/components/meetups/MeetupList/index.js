@@ -1,6 +1,6 @@
-import MeetupItem from './MeetupItem'
+import MeetupItem from '../MeetupItem'
 import classes from './MeetupList.module.css'
-import { useMeetups } from '../../contexts/MeetupsContext'
+import { useMeetups } from '../../../contexts/MeetupsContext'
 
 export default function MeetupList () {
   const { meetups, isLoading, isError } = useMeetups()

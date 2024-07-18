@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form'
-import Card from '../ui/Card'
+import Card from '../../ui/Card'
 import classes from './NewMeetupForm.module.css'
 import { useNavigate } from 'react-router-dom'
-import { useMeetups } from '../../contexts/MeetupsContext'
+import { useMeetups } from '../../../contexts/MeetupsContext'
 
 export default function NewMeetupForm () {
   const { register, handleSubmit, formState: { errors } } = useForm()
