@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# React Meetups
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es una aplicación de encuentros (meetups) desarrollada con React. Permite a los usuarios ver una lista de meetups, añadir nuevos meetups y marcar meetups como favoritos. La aplicación utiliza Context API de React para compartir estado entre componentes siblings y `react-router-dom` para la navegación. Además, se utiliza SWR y `localStorage` como estrategia de manejo del estado.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- **Lista de Meetups:** Visualiza una lista de meetups disponibles.
+- **Añadir Meetups:** Permite añadir nuevos meetups a la lista.
+- **Favoritos:** Marca y desmarca meetups como favoritos.
 
-### `npm start`
+## Estructura del Proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+El proyecto está estructurado en varios componentes, contextos y rutas. Los componentes principales incluyen:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `App.js`: El componente raíz que envuelve la aplicación con el `MeetupsProvider` y define la estructura básica.
+- `Header.js`: El componente de la cabecera que incluye la navegación.
+- `MeetupList.js`: Componente para listar los meetups.
+- `MeetupItem.js`: Componente para mostrar los detalles de cada meetup.
+- `NewMeetup.js`: Componente para añadir nuevos meetups.
+- `Favorites.js`: Componente para mostrar los meetups marcados como favoritos.
 
-### `npm test`
+## Manejo del Estado
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La aplicación utiliza Context API de React para compartir el estado entre componentes siblings. SWR se utiliza para la recuperación y revalidación de datos, mientras que `localStorage` se emplea para persistir el estado de los meetups en el navegador.
 
-### `npm run build`
+### Context API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El contexto de `MeetupsContext` se utiliza para proporcionar y gestionar el estado global de los meetups. Esto permite compartir fácilmente el estado entre componentes sin necesidad de pasar props manualmente.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### SWR y LocalStorage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+SWR (`stale-while-revalidate`) se utiliza para manejar la recuperación de datos de los meetups, permitiendo que la aplicación mantenga los datos actualizados sin afectar el rendimiento. Los datos de los meetups se almacenan en `localStorage` para asegurar que persistan entre sesiones del navegador.
 
-### `npm run eject`
+## Instalación y Ejecución
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Sigue los pasos a continuación para clonar y ejecutar el proyecto en tu máquina local.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerrequisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Asegúrate de tener instalado Node.js y npm en tu máquina.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Instalación
 
-## Learn More
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/griselmatosm/react-meetups.git
+2. Navega al directorio del proyecto:
+   ```bash
+   cd react-meetups
+3. Instala las dependencias:
+  ```bash
+  npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Ejecución del proyecto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para ejecutar la aplicación en modo desarrollo, usa el siguiente comando:
+    ```bash
+    npm start
 
-### Code Splitting
+Abre http://localhost:3000 para ver la aplicación en el navegador. La página se recargará automáticamente si realizas cambios en el código.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Ejecución de Pruebas
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto incluye pruebas unitarias para los componentes. Para ejecutar las pruebas, usa el siguiente comando:
+    ```bash
+    npm test
