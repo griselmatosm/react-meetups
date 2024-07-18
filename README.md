@@ -31,6 +31,10 @@ El contexto de `MeetupsContext` se utiliza para proporcionar y gestionar el esta
 
 SWR (`stale-while-revalidate`) se utiliza para manejar la recuperación de datos de los meetups, permitiendo que la aplicación mantenga los datos actualizados sin afectar el rendimiento. Los datos de los meetups se almacenan en `localStorage` para asegurar que persistan entre sesiones del navegador.
 
+## Enrutado
+
+La aplicación utiliza `react-router-dom` para gestionar las rutas y la navegación. Esto permite que la navegación refleje correctamente las URLs, siguiendo buenas prácticas de SEO y mejorando la experiencia del usuario.
+
 ## Instalación y Ejecución
 
 Sigue los pasos a continuación para clonar y ejecutar el proyecto en tu máquina local.
