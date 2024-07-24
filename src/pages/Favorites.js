@@ -1,5 +1,5 @@
 import { useMeetups } from '../contexts/MeetupsContext'
-import MeetupItem from '../components/meetups/MeetupItemTemp'
+import MeetupItem from '../components/meetups/MeetupItem'
 
 export function FavoritesPage () {
   const { meetups } = useMeetups()
