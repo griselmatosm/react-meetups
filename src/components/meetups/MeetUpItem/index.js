@@ -1,7 +1,7 @@
 import classes from './MeetupItem.module.css'
-import Card from '../../ui/Card'
 import { useMeetups } from '../../../contexts/MeetupsContext'
 import { useNavigate } from 'react-router-dom'
+import Card from '../../ui/Card'
 
 export default function MeetupItem ({ id, image, title, address, description, isFavorite }) {
   const { toggleFavorites } = useMeetups()
