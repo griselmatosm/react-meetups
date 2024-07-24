@@ -1,4 +1,4 @@
-import MeetupItem from '../MeetupItem'
+import MeetupItem from '../MeetupItemTemp'
 import classes from './MeetupList.module.css'
 import { useMeetups } from '../../../contexts/MeetupsContext'
 
